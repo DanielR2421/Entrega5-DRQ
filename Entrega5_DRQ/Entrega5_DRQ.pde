@@ -35,6 +35,12 @@ void draw(){
  rad = (level* width/30); 
  
  
+translate(width/2, height/2);
+ 
+ //ejemplo
+ fill(255, 10);
+ stroke(3);
+ rect(x, y, rad, rad, -x);
  
  
 }
