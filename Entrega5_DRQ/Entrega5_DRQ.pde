@@ -15,7 +15,7 @@ float colorBody;
 float tamBody;
 float movPeople;
 float ampTotalP;
-float PosPeopleX;
+float PosPeopleX = 0;
 float posPeopleY;
 
 //Spotlight
@@ -54,6 +54,14 @@ void draw() {
 
   ampTotal = ampl.analyze();
 
+float speed = map(ampTotal, 0, 1, 1, 10);
+
+PosPeopleX = PosPeopleX + speed;
+
+if (PosPeopleX > width){
+
+  PosPeopleX = -width;
+}
 
   translate(width/2, height/2);
 
@@ -66,41 +74,32 @@ void draw() {
 
   popMatrix();
 
-  //Ejemplo
-  // pushMatrix();
-  //  fill(#EA0000);
-  // stroke(1);
-  // rect(44, 162, 14, 56);
-  //rect(44, 162, 64, 13);
-  //rect(94, 162, 14, 56);
-  // float tam = map(ampTotal, 0, 1, 50, 150);
-  // ellipse(88, 218, tam, tam);
-  // ellipse(38, 218, tam, tam);
-
-
 
   //Primera fila de personas de atras
   pushMatrix();
-  fill(255);
+ 
+ 
   noStroke();
   
   for (int h = -4; h <= 4; h++)
     if (h != -1 && h != 0 && h != 1){
       //piernas
      fill(#815B1D);
-      ellipse(h*30, 10, 5, 35);
+      ellipse(h*30+PosPeopleX, 10, 5, 35);
        // torso
        fill(#383564);
-      ellipse(h*30, -5, 10, 35);
+      ellipse(h*30+PosPeopleX, -5, 10, 35);
       //cabeza
       fill(#FFE7C9);
-      ellipse(h*30, -20, 15, 15);
+      ellipse(h*30+PosPeopleX, -20, 15, 15);
     }
+    
+    
   popMatrix();
 
   //2 fila de personas
   pushMatrix();
-  fill(255);
+  
   noStroke();
   
   for (int i = -5; i <= 5; i++)
@@ -167,7 +166,8 @@ void draw() {
   
   for (int j = -6; j <= 6; j++)
     if (j != -1 && j != 0 && j != 1){
-     fill(#CDB7D3);
+    //Piernas
+      fill(#CDB7D3);
       ellipse(j*50, 65, 10, 45);
        // torso
        fill(#94729D);
@@ -185,7 +185,8 @@ void draw() {
   
   for (int k = -5; k <= 5; k++)
     if (k != -1 && k != 0 && k != 1){
-     fill(#9298A6);
+     //Piernas
+      fill(#9298A6);
       ellipse(k*60, 95, 12.5, 50);
        // torso
        fill(#6A7F5F);
