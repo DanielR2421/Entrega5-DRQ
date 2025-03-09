@@ -35,8 +35,7 @@ float ampTotalPr;
 
 void setup() {
   size(800, 800);
-  background(1);
-  frameRate(30);
+  //frameRate(30);
 
   // sonidos
   PeaceOfMind = new SoundFile(this, "Avicii - Peace Of Mind ft. Vargas & Lagola.mp3");
@@ -51,19 +50,31 @@ void setup() {
 
 void draw() {
 
+   background(1);
+    
   ampTotal = ampl.analyze();
 
 
   translate(width/2, height/2);
 
+pushMatrix();
+  //Spotlight
+  fill(#FCFF4D);
+  tamSpot = map(ampTotal, 0, 1, 1, -50);
+  triangle( 0, -400, tamSpot*5, tamSpot, tamSpot*-5, tamSpot);
+  
+ // popMatrix();
+ // pushMatrix();
+//  fill(#EA0000);
+  stroke(1);
+  rect(44, 162, 14, 56);
+  rect(44, 162, 64, 13);
+  rect(94, 162, 14, 56);
+  float tam = map(ampTotal, 0, 1, 50, 150);
+  ellipse(88, 218, tam, tam);
+  ellipse(38, 218, tam, tam);
 
-//Spotlight
-fill(#FCFF4D, 100);
-tamSpot = map(ampTotal, 0, 1, 1, -50);
-triangle( 0, -400, tamSpot*5, tamSpot, tamSpot*-5, tamSpot);
-
-
-
+  popMatrix();
   fill(255, 10);
   noStroke();
 
