@@ -5,15 +5,10 @@ SoundFile PeaceOfMind;
 
 //Varible de Amplitud
 Amplitude ampl;
-//Temporal
-float volumen = 0;
-float posX = 0;
+
 float ampTotal;
 
 //Personas Alienadas
-float colorBody;
-float tamBody;
-float ampTotalP;
 float PosPeopleX = 0;
 float PosPeopleX2 = 0;
 float posPeopleX3 = 0;
@@ -21,9 +16,9 @@ float posPeopleX3 = 0;
 //Spotlight
 float colorSpot;
 float tamSpot = 0;
+float tamCloud = 0;
 
 //Arbol solo
-float colorPers;
 float tamTree = 0;
 float tamTree2 = 0;
 
@@ -73,14 +68,25 @@ if (posPeopleX3  > width/2 + 800){
   
   
   
-//Fondo que cambia de color
-  
+//Fondo que cambia de color los valoers usan lo que se vio en clase para restringir los colores que se cambian
+
 float r = map(ampTotal, 0, 1, 1, 135);
 float g = map(ampTotal, 0, 1, 1, 200);
 float b = map(ampTotal, 0, 1, 1, 235);
 fill(r, g, b);
   rect(-400, 0, 800, -400);
-
+  
+//Nubes: La verdad esto fue mas que todo jugar con como puede cambiar o jugar cor la amplitud
+tamCloud = map(ampTotal, 0, 1, 1, 40);
+fill(255);
+  ellipse(-200, -100, 60/tamCloud, 60/tamCloud);
+  ellipse(-300, -175, tamCloud, tamCloud);
+  ellipse(-125, -250, 40+tamCloud, 40+tamCloud);
+  ellipse(200, -260, tamCloud, tamCloud);
+  ellipse(170, -100, 30+tamCloud, 30+tamCloud);
+  ellipse(350, -150, 60/tamCloud, 60/tamCloud);
+  ellipse(-275, -335, 2*tamCloud, 2*tamCloud);
+  ellipse(200, -350, 50/tamCloud, 50/tamCloud);
 
 //Lineas de anden
 fill(#3B3E3A);
@@ -100,7 +106,7 @@ fill(#3B3E3A);
 
   pushMatrix();
   
-  //Spotlight
+  //Spotlight : para tener esa formula fue mas como de experimentación hasta que lo se logro obtener la forma de foco de luz multiplicando el tan spot * un numero negativo
   fill(#FCFF4D);
   tamSpot = map(ampTotal, 0, 1, 1, -50);
   triangle( 0, -400, tamSpot*5, tamSpot, tamSpot*-5, tamSpot);
@@ -108,7 +114,7 @@ fill(#3B3E3A);
   popMatrix();
 
 
-  //Primera fila de personas de atras
+  //Primera fila de personas de atrás, el + PosPeopleX es lo ue relaciona la posicion de las personas en el loop con el moviemiento que varia con el ritmo de la canción
   pushMatrix();
  
  
