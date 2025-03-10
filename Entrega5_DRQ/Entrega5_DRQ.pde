@@ -68,7 +68,7 @@ void draw() {
 
 
 
-  //Fondo que cambia de color los valoers usan lo que se vio en clase para restringir los colores que se cambian
+  //Fondo que cambia de color, los valores usan lo que se vio en clase para restringir los colores que se cambian de acuerdo a un rango de color
 
   float r = map(ampTotal, 0, 1, 1, 135);
   float g = map(ampTotal, 0, 1, 1, 200);
@@ -77,9 +77,13 @@ void draw() {
   rect(-400, 0, 800, -400);
 
   //Nubes: La verdad esto fue mas que todo jugar con como puede cambiar o jugar cor la amplitud
+  
+  //Analisis de Amplitud
   tamCloud = map(ampTotal, 0, 1, 1, 40);
   fill(255);
   ellipse(-200, -100, 60/tamCloud, 60/tamCloud);
+  ellipse(-150, -300, 60/tamCloud, 60/tamCloud);
+  ellipse(120, -200, 40/tamCloud, 40/tamCloud);
   ellipse(-300, -175, 15+tamCloud, 15+tamCloud);
   ellipse(-125, -250, 2*tamCloud, 2*tamCloud);
   ellipse(200, -260, 1.5*tamCloud, 1.5*tamCloud);
@@ -186,7 +190,7 @@ void draw() {
   fill(#7C643E);
   ellipse(0, 250, 50+tamTree2, 20+tamTree2);
   stroke(#522F00);
-  strokeWeight(5);
+  strokeWeight(4);
   line(0, 250, 0, 150);
 
   //mazeta4 con arbol cortados
@@ -209,6 +213,7 @@ void draw() {
 
   // Tronco (desde abajo hacia arriba)
   stroke(#522F00);
+  strokeWeight(3);
   line(0, -100, 0, 0);
 
   // Ramas principales
