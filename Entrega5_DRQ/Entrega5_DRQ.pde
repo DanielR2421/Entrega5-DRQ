@@ -22,10 +22,6 @@ float posPeopleX3 = 0;
 float colorSpot;
 float tamSpot = 0;
 
-//Ciudad
-float colorBuild;
-float tamBuild;
-
 //Arbol solo
 float colorPers;
 float tamTree = 0;
@@ -69,11 +65,22 @@ if (PosPeopleX  > width){
 if (PosPeopleX2  > width){
   PosPeopleX2 = -width;
 }
-
+//el + 800 y el - 800 es para que las personas se den un tiempo de cruzar el limite del lienzo para volver a aparecer porque sino aparecen sin todashaver salido del lugar
 if (posPeopleX3  > width/2 + 800){
   posPeopleX3 = -width/2 - 800;
 }
   translate(width/2, height/2);
+  
+  
+  
+//Fondo que cambia de color
+  
+float r = map(ampTotal, 0, 1, 1, 135);
+float g = map(ampTotal, 0, 1, 1, 200);
+float b = map(ampTotal, 0, 1, 1, 235);
+fill(r, g, b);
+  rect(-400, 0, 800, -400);
+
 
 //Lineas de anden
 fill(#3B3E3A);
