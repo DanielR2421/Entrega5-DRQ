@@ -80,12 +80,12 @@ void draw() {
   tamCloud = map(ampTotal, 0, 1, 1, 40);
   fill(255);
   ellipse(-200, -100, 60/tamCloud, 60/tamCloud);
-  ellipse(-300, -175, tamCloud, tamCloud);
-  ellipse(-125, -250, 40+tamCloud, 40+tamCloud);
-  ellipse(200, -260, tamCloud, tamCloud);
-  ellipse(170, -100, 30+tamCloud, 30+tamCloud);
+  ellipse(-300, -175, 15+tamCloud, 15+tamCloud);
+  ellipse(-125, -250, 2*tamCloud, 2*tamCloud);
+  ellipse(200, -260, 1.5*tamCloud, 1.5*tamCloud);
+  ellipse(170, -100, 5+tamCloud, 5+tamCloud);
   ellipse(350, -150, 60/tamCloud, 60/tamCloud);
-  ellipse(-275, -335, 2*tamCloud, 2*tamCloud);
+  ellipse(-275, -335, tamCloud, tamCloud);
   ellipse(200, -350, 50/tamCloud, 50/tamCloud);
 
   //Lineas de anden
