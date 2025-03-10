@@ -217,10 +217,17 @@ void draw() {
   line(0, 0, 0, 100);
 
   // Hojas centrales
-  stroke(#155215);
+  stroke(#24480F);
+  fill(#4E8D37);
   triangle(0, 100, -40, 20, 40, 20);
+  
+  stroke(#183B05);
+  fill(#2D6517);
   triangle(-50, 50, -30, -5, -5, 40);
   triangle(50, 50, 30, -5, 5, 40);
+  
+  stroke(#284012);
+  fill(#5E8C3A);
   triangle(-50, 50, -60, 0, -10, 30);
   triangle(50, 50, 60, 0, 10, 30);
 
@@ -234,13 +241,23 @@ void draw() {
   line(0, 100, 30, 150);
 
   // Más hojas
-  stroke(#155215);
+  stroke(#183B05);
+  fill(#2D6517);
   triangle(-120, 50, -50, 40, -80, 80);
   triangle(120, 50, 50, 40, 80, 80);
+  
+  stroke(#1E3A09);
+  fill(#3E7A28);
   triangle(-70, 125, -40, 50, -70, 80);
   triangle(70, 125, 40, 50, 70, 80);
+  
+  stroke(#2E5C1B);
+  fill(#7BB661);
   triangle(-30, 125, -50, 65, 0, 100);
   triangle(30, 125, 50, 65, 0, 100);
+  
+  stroke(#3D6924);
+  fill(#94CF6A);
   triangle(-30, 150, -50, 100, 0, 140);
   triangle(30, 150, 50, 100, 0, 140);
 
