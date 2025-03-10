@@ -117,9 +117,8 @@ void draw() {
   //Primera fila de personas de atrás, el + PosPeopleX es lo ue relaciona la posicion de las personas en el loop con el moviemiento que varia con el ritmo de la canción
   pushMatrix();
 
-
   noStroke();
-
+// El for loop y el if que se ve para cada grupo de personas permite que se deje el espacio entre ellas por lo que se marca la persona que no debe ir en tal posicion, ejemplo, en este caso no debe haber una persona en la posicion 4 y ahi sucesivamente con el resto de grupos de personas
   for (int h = -4; h <= 4; h++)
     if (h != -1 && h != 0 && h != 1) {
       //piernas
@@ -219,9 +218,11 @@ void draw() {
 
   // Hojas centrales
   stroke(#155215);
-  triangle(-50, 50, -70, 30, -30, 30);
-  triangle(50, 50, 30, 30, 70, 30);
-  triangle(0, 100, -20, 80, 20, 80);
+  triangle(0, 100, -40, 20, 40, 20);
+  triangle(-50, 50, -30, -5, -5, 40);
+  triangle(50, 50, 30, -5, 5, 40);
+  triangle(-50, 50, -60, 0, -10, 30);
+  triangle(50, 50, 60, 0, 10, 30);
 
   //Ramas
   stroke(#522F00);
@@ -234,12 +235,14 @@ void draw() {
 
   // Más hojas
   stroke(#155215);
-  triangle(-100, 80, -120, 60, -80, 60);
-  triangle(-70, 120, -90, 100, -50, 100);
-  triangle(100, 80, 80, 60, 120, 60);
-  triangle(70, 120, 50, 100, 90, 100);
-  triangle(-30, 150, -50, 130, -10, 130);
-  triangle(30, 150, 10, 130, 50, 130);
+  triangle(-120, 50, -50, 40, -80, 80);
+  triangle(120, 50, 50, 40, 80, 80);
+  triangle(-70, 125, -40, 50, -70, 80);
+  triangle(70, 125, 40, 50, 70, 80);
+  triangle(-30, 125, -50, 65, 0, 100);
+  triangle(30, 125, 50, 65, 0, 100);
+  triangle(-30, 150, -50, 100, 0, 140);
+  triangle(30, 150, 50, 100, 0, 140);
 
   popMatrix();
 
