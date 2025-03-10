@@ -328,7 +328,7 @@ void draw() {
     }
   popMatrix();
 
-  //6 fila de personas: Aca se ve marcado el tema del + 800 y el -800 para que las personas no tengan problema al entrar y salir del lienzo sin reaparecer extrañamente al igual que en la 5ta fila de personas
+  //6 fila de personas: Aca se ve marcado el tema del + 800 y el -800 para que las personas no tengan problema al entrar y salir del lienzo sin reaparecer extrañamente al igual que en la 5ta fila de personas que utilizan la variable de PosPeopleX3
   pushMatrix();
   fill(255);
   noStroke();
