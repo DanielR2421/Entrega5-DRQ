@@ -41,6 +41,7 @@ void draw() {
   //frameRate(30);
   background(1);
 
+//Varibale para facilitar el analisis de la amplitud de las ondas de la canción
   ampTotal = ampl.analyze();
 
   //Velocidades de movimiento de las personas
@@ -48,11 +49,12 @@ void draw() {
   float speed2 = map(ampTotal, 0, 1, 1, 20);
   float speed3 = map(ampTotal, 0, 1, 1, 25);
 
+// Esta modificación de la variable hace que la posición de las personas cambie con relación a la amplitud de la onda que se esta analizando por eso las velocidades de las personas son diferentes (entre mas al fondo estan son mas lentas)
   PosPeopleX = PosPeopleX + speed;
   PosPeopleX2 = PosPeopleX2 + speed2;
   posPeopleX3 = posPeopleX3 + speed3;
 
-  //Las personas si salen del lienzo deben volver a entrar pero a distintas velocidades
+  //Las personas si salen del lienzo deben volver a entrar pero a distintas velocidades por lo que sumo esta variable a su posicion en x (ej: h*30+PosPeopleX, 10, etc, etc...) por lo que generara el movimiento horizontal de estos
   if (PosPeopleX  > width) {
     PosPeopleX = -width;
   }
@@ -60,7 +62,7 @@ void draw() {
   if (PosPeopleX2  > width) {
     PosPeopleX2 = -width;
   }
-  //el + 800 y el - 800 es para que las personas se den un tiempo de cruzar el limite del lienzo para volver a aparecer porque sino aparecen sin todashaver salido del lugar
+  //el + 800 y el - 800 es para que las personas se den un tiempo de cruzar el limite del lienzo para volver a aparecer porque sino aparecen sin todavia haber salido del limite del lienzo
   if (posPeopleX3  > width/2 + 800) {
     posPeopleX3 = -width/2 - 800;
   }
@@ -119,10 +121,11 @@ void draw() {
 
 
   //Primera fila de personas de atrás, el + PosPeopleX es lo ue relaciona la posicion de las personas en el loop con el moviemiento que varia con el ritmo de la canción
+  //Igual que en mi otra entrega, utilizo las funciones de PushMatrix y PopMatrix (en la entrega de tiempo use solo push y pop), para separar los codigos de cada elemento del codigo
   pushMatrix();
 
   noStroke();
-// El for loop y el if que se ve para cada grupo de personas permite que se deje el espacio entre ellas por lo que se marca la persona que no debe ir en tal posicion, ejemplo, en este caso no debe haber una persona en la posicion 4 y ahi sucesivamente con el resto de grupos de personas
+// El for loop y el if que se ve para cada grupo de personas permite que se deje un espacio entre ellas por lo que se marca la persona que no debe ir en tal posicion, ejemplo, en este caso no debe haber una persona en la posicion 4 y ahi sucesivamente con el resto de grupos de personas para dar un poco una sensación de profundidad
   for (int h = -4; h <= 4; h++)
     if (h != -1 && h != 0 && h != 1) {
       //piernas
@@ -138,7 +141,7 @@ void draw() {
 
   popMatrix();
 
-  //2 fila de personas
+  //2 fila de personas, en este caso es en donde deberia ir la 5ta persona y asi pasa con el resto del codigo
   pushMatrix();
 
   noStroke();
@@ -345,3 +348,4 @@ void draw() {
 
   popMatrix();
 }
+//Ya para finalizar, escogí esta canción porque aparte de ser una de mis favoritas, creo que tiene un mensaje que intento reflejar de que a veces la sociedad evoluciona tan rapido que se olvida a veces del cuidado de cosas basicas para la vida sana como lo son la salud mental y la naturaleza misma, por lo que no esta mal darse un respiro de vez en cuando
