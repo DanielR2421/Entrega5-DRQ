@@ -29,6 +29,7 @@ float tamBuild;
 //Arbol solo
 float colorPers;
 float tamTree = 0;
+float tamTree2 = 0;
 
 void setup() {
   size(800, 800);
@@ -73,6 +74,22 @@ if (posPeopleX3  > width/2 + 800){
   posPeopleX3 = -width/2 - 800;
 }
   translate(width/2, height/2);
+
+//Lineas de anden
+fill(#3B3E3A);
+  rect(-400, 0, 800, 200);
+ 
+ fill(#D6D4D1);
+ quad( -200, 0, -150, 0, -300, 200, -350, 200); 
+ fill(#D6D4D1);
+ quad( -100, 0, -50, 0, -200, 200, -250, 200); 
+ fill(#D6D4D1);
+ 
+ fill(#D6D4D1);
+  quad(200, 0, 250, 0, 100, 200, 50, 200);
+  
+  fill(#D6D4D1);
+  quad(300, 0, 350, 0, 200, 200, 150, 200);
 
   pushMatrix();
   
@@ -125,16 +142,56 @@ if (posPeopleX3  > width/2 + 800){
   
   //Arbol Olvidado
   pushMatrix();
-  
+  //Mazeta 1 arbol cortados
  tamTree = map(ampTotal, 0, 1, 1, 70); 
+ tamTree2 = map(ampTotal, 0, 1, 1, 50); 
  
+ fill(#737972);
+ ellipse(0, 100, 100, 70);
  fill(#5DAD46);
- ellipse(0, 100, 80, 50);
+ ellipse(0, 100, 90, 60);
   fill(#7C643E);
  ellipse(0, 100, 50+tamTree, 20+tamTree);
-  
+ 
+ //mazeta2
+ fill(#737972);
+ ellipse(-300, 300, 100, 70);
+ fill(#402B08);
+ ellipse(-300, 300, 90, 60);
+  fill(#7C643E);
+ ellipse(-300, 300, 50+tamTree2, 20+tamTree2);
+ stroke(#522F00); 
+  strokeWeight(5); 
+  line(-300, 300,-300, 175);
+ 
+ 
+ //mazeta3
+ noStroke();
+  fill(#737972);
+ ellipse(0, 250, 100, 70);
+ fill(#402B08);
+ ellipse(0, 250, 90, 60);
+  fill(#7C643E);
+ ellipse(0, 250, 50+tamTree2, 20+tamTree2);
+ stroke(#522F00); 
+  strokeWeight(5); 
+  line(0, 250, 0, 150);
+ 
+ //mazeta4 con arbol cortados
+ noStroke();
+  fill(#737972);
+ ellipse(300, 300, 100, 70);
+ fill(#402B08);
+ ellipse(300, 300, 90, 60);
+  fill(#7C643E);
+ ellipse(300, 300, 50+tamTree2, 20+tamTree2);
+ stroke(#522F00); 
+  strokeWeight(5); 
+  line(300, 300, 300, 175);
+
   fill(#09B20A);
   strokeWeight(3);
+  
   //Voltear la escala para que sea mas facil armar las ramas del arbol
  scale(1, -1);
   
